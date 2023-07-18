@@ -310,31 +310,31 @@ s_value = {
 x1 = st.selectbox('Diameter Tiang (m)', options=[0.8, 1.0, 1.2], index=0)
 
 #with col2:
-x2 = st.number_input('Panjang Efektif Tiang (m)', min_value=16.5, max_value=68.05, value=30., step=1.)
+x2 = st.number_input('Panjang Efektif Tiang (m) (Min=16.5; Max=68.05)', min_value=16.5, max_value=68.05, value=30., step=1.)
 
 #with col3:
-x3 = st.number_input('N-SPT rata-rata di Selimut Tiang Bagian 1 (Ns1)', min_value=3., max_value=79., value=16., step=1.)
+x3 = st.number_input('N-SPT rata-rata di Selimut Tiang Bagian 1 (Ns1) (Min=3; Max=79)', min_value=3., max_value=79., value=16., step=1.)
 
 #with col4:
 x4 = st.selectbox('Jenis Tanah Ekivalen di Selimut Tiang Bagian 1 (S1)', options=list(s_value.keys()), index=0)
 x4 = s_value[x4]
 
 #with col5:
-x5 = st.number_input('N-SPT rata-rata di Selimut Tiang Bagian 2 (Ns2)', min_value=8.6, max_value=108.1, value=45., step=1.)
+x5 = st.number_input('N-SPT rata-rata di Selimut Tiang Bagian 2 (Ns2) (Min=8.6; Max=108)', min_value=8.6, max_value=108.1, value=45., step=1.)
 
 #with col6:
 x6 = st.selectbox('Jenis Tanah Ekivalen di Selimut Tiang Bagian 2 (S2)', options=list(s_value.keys()), index=0)
 x6 = s_value[x6]
 
 #with col7:
-x7 = st.number_input('N-SPT rata-rata di Selimut Tiang Bagian 3 (Ns3)', min_value=21., max_value=104.2, value=43., step=1.)
+x7 = st.number_input('N-SPT rata-rata di Selimut Tiang Bagian 3 (Ns3) (Min=21; Max=104)', min_value=21., max_value=104.2, value=43., step=1.)
 
 #with col8:
 x8 = st.selectbox('Jenis Tanah Ekivalen di Selimut Tiang Bagian 3 (S3)', options=list(s_value.keys()), index=0)
 x8 = s_value[x8]
 
 #with col9:
-x9 = st.number_input('N-SPT rata-rata di Ujung Tiang (Ntip)', min_value=16.7, max_value=180., value=53., step=1.)
+x9 = st.number_input('N-SPT rata-rata di Ujung Tiang (Ntip) (Min=16.7; Max=180)', min_value=16.7, max_value=180., value=53., step=1.)
 
 #with col10:
 x10 = st.selectbox('Jenis Tanah Ekivalen di Ujung Tiang (S4)', options=list(s_value.keys()), index=0)
