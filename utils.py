@@ -7,21 +7,23 @@ class DataProcessor:
         self.diameter = diameter
         self.COL = COL
         self.l = l
-        self.grouping = {'sand':['SP', 'SW', 'SC', 'SM', "GW", 'GP']
-            ,'clay':['CH', 'CL'],
-            'silt':['MH', 'ML']}
+        self.grouping = {'sand': ['SP', 'SW', 'SC', 'SM', "GW", 'GP'],
+                         'clay': ['CH', 'CL'],
+                         'silt': ['MH', 'ML']}
         self.data['group_soil'] = self.data['soil_type'].apply(lambda x: [key for key, value in self.grouping.items() if x in value][0])
         self.data['bobot'] = self.get_bobot(self.data['depth'])
-        self.data_used = self.data[self.data['depth']<self.l+self.COL][self.data['depth']>self.COL]
-        self.bagian = (self.data_used['depth'].max() - self.data_used['depth'].min())/3
-        self.bagian_1 = self.data_used[self.data_used['depth']<self.data_used['depth'].min()+self.bagian]
-        self.bagian_2 = self.data_used[self.data_used['depth']<self.data_used['depth'].min()+self.bagian*2][self.data_used['depth']>self.data_used['depth'].min()+self.bagian]
-        self.bagian_3 = self.data_used[self.data_used['depth']>self.data_used['depth'].min()+self.bagian*2]
-        self.batas_atas = 4*self.diameter if self.data_used['n-spt'].iloc[-1] >= 20 else 8*self.diameter
-        self.batas_bawah = 2*self.diameter if self.data_used['n-spt'].iloc[-1] >= 20 else 4*self.diameter
-        self.length_nt_1 = self.l-self.batas_atas
-        self.length_nt_2 = self.l+self.batas_bawah
-        self.data_nt = self.data[self.data['depth']<self.length_nt_2][self.data['depth']>self.length_nt_1]
+        self.data_used = self.data[(self.data['depth'] < self.l + self.COL) & (self.data['depth'] > self.COL)]
+        self.bagian = (self.data_used['depth'].max() - self.data_used['depth'].min()) / 5
+        self.bagian_1 = self.data_used[self.data_used['depth'] < self.data_used['depth'].min() + self.bagian]
+        self.bagian_2 = self.data_used[(self.data_used['depth'] < self.data_used['depth'].min() + self.bagian * 2) & (self.data_used['depth'] > self.data_used['depth'].min() + self.bagian)]
+        self.bagian_3 = self.data_used[(self.data_used['depth'] < self.data_used['depth'].min() + self.bagian * 3) & (self.data_used['depth'] > self.data_used['depth'].min() + self.bagian * 2)]
+        self.bagian_4 = self.data_used[(self.data_used['depth'] < self.data_used['depth'].min() + self.bagian * 4) & (self.data_used['depth'] > self.data_used['depth'].min() + self.bagian * 3)]
+        self.bagian_5 = self.data_used[self.data_used['depth'] > self.data_used['depth'].min() + self.bagian * 4]
+        self.batas_atas = 4 * self.diameter if self.data_used['n-spt'].iloc[-1] >= 20 else 8 * self.diameter
+        self.batas_bawah = 2 * self.diameter if self.data_used['n-spt'].iloc[-1] >= 20 else 4 * self.diameter
+        self.length_nt_1 = self.l - self.batas_atas
+        self.length_nt_2 = self.l + self.batas_bawah
+        self.data_nt = self.data[(self.data['depth'] < self.length_nt_2) & (self.data['depth'] > self.length_nt_1)]
 
     def get_bobot(self, data):
         out = []
