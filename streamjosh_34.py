@@ -21,7 +21,7 @@ st.text('The soil data used is the N-SPT data and the soil type is based on the 
 col1, col2,col3 = st.columns(3)
 
 with col1:
-    diameter = st.selectbox('diameter', options=[0.8, 1.0, 1.2], index=0)
+    diameter = st.selectbox('diameter', options=[0.45, 0.5, 0.6, 0.8, 1.0, 1.2], index=0)
 with col2:
     COL = st.number_input('COL', value=0.00)
 with col3:
