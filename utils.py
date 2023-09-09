@@ -39,17 +39,17 @@ class DataProcessor:
         return np.sum(data*bobot)/np.sum(bobot)
     
     def get_all_value(self):
-        self.ns1 = self.weighted_average(self.bagian_1['n-spt'], self.bagian_1['bobot'])
+        self.ns1 = round(self.weighted_average(self.bagian_1['n-spt'], self.bagian_1['bobot']), 1)
         self.s1 = self.bagian_1['group_soil'].value_counts().index[0]
-        self.ns2 = self.weighted_average(self.bagian_2['n-spt'], self.bagian_2['bobot'])
+        self.ns2 = round(self.weighted_average(self.bagian_2['n-spt'], self.bagian_2['bobot']), 1)
         self.s2 = self.bagian_2['group_soil'].value_counts().index[0]
-        self.ns3 = self.weighted_average(self.bagian_3['n-spt'], self.bagian_3['bobot'])
+        self.ns3 = round(self.weighted_average(self.bagian_3['n-spt'], self.bagian_3['bobot']), 1)
         self.s3 = self.bagian_3['group_soil'].value_counts().index[0]
-        self.ns4 = self.weighted_average(self.bagian_4['n-spt'], self.bagian_4['bobot'])
+        self.ns4 = round(self.weighted_average(self.bagian_4['n-spt'], self.bagian_4['bobot']), 1)
         self.s4 = self.bagian_4['group_soil'].value_counts().index[0]
-        self.ns5 = self.weighted_average(self.bagian_5['n-spt'], self.bagian_5['bobot'])
+        self.ns5 = round(self.weighted_average(self.bagian_5['n-spt'], self.bagian_5['bobot']), 1)
         self.s5 = self.bagian_5['group_soil'].value_counts().index[0]
-        self.nt = self.weighted_average(self.data_nt['n-spt'], self.data_nt['bobot'])
+        self.nt = round(self.weighted_average(self.data_nt['n-spt'], self.data_nt['bobot']), 1)
         self.st = self.data_nt['group_soil'].value_counts().index[0]
         return {
             'ns1': self.ns1,
@@ -65,6 +65,7 @@ class DataProcessor:
             'nt': self.nt,
             'st': self.st
         }
+
     
     def get_data_used(self):
         return self.data_used
