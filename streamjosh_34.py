@@ -25,7 +25,7 @@ with col1:
 with col2:
     COL = st.number_input('COL (m)', value=0.00)
 with col3:
-    l = st.number_input('Total Length of Piles (m)', value=30.00)
+    l = st.number_input('Total Length of Pile (m)', value=30.00)
 
 # Load data
 uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
