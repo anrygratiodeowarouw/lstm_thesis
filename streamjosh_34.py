@@ -374,9 +374,6 @@ plot, y_pred = plot_by_ei(x)
 
 st.pyplot(plot)
 
-st.subheader("Penentuan nilai ei berdasarkan Deret Aritmatika")
-st.text('di Python Index dimulai dari 0')
-st.image('Deret.png')
 
 st.markdown("Credit to:")
 st.markdown("            P2MI ITB")
