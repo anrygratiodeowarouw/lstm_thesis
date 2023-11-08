@@ -269,32 +269,38 @@ def inference(model, x, ei):
 import numpy as np
 import matplotlib.pyplot as plt
 
-#plot berdasarkan ei
+import matplotlib.pyplot as plt
+
 def plot_by_ei(data):
     x, ei = preprocessing(data, scaler)
     print(x)
     y_pred = inference(regressor, x, ei)
-    plt.figure(figsize=(15,15))
+    plt.figure(figsize=(15, 15))
     plt.plot(y_pred, ei, label='Prediction', color='red', linewidth=3)
-    #title = 'Prediction of Load-settlement Curve of Pile Foundation using Deep Learning'
-    # Font Family
+    
     plt.rcParams['font.family'] = 'Arial'
-    # membuat jarak antara title dengan grafik
     plt.title('Prediction of Load-settlement Curve of Pile Foundation using Deep Learning', fontsize=24, fontweight='bold', pad=30.0)
     plt.xlabel('Load at Pile Head (kN)', fontsize=20)
     plt.ylabel('Pile Top Settlement (% Diameter)', fontsize=20)
 
-    plt.xticks(fontsize=16)
+    # Set custom xticks
+    x_ticks = range(0, int(max(x) + 1000), 1000)
+    plt.xticks(x_ticks, fontsize=16)
+    
     plt.yticks(fontsize=16)
+    
     plt.xlim(0)
-    plt.ylim(0, max(ei+1))
-
+    plt.ylim(0, max(ei + 1))
+    
     plt.gca().invert_yaxis()
-    # mengatur garis grid pada grafik
     plt.grid(linestyle='--', linewidth=1, alpha=0.5)
     plt.legend(fontsize=14)
 
     return plt, y_pred
+
+# Example usage:
+# plot_by_ei(data)
+
 
 
 #create 10 columns
