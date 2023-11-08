@@ -283,8 +283,7 @@ def plot_by_ei(data):
 
     plt.xticks(fontsize=16)
     plt.yticks(fontsize=16)
-    max_ei = np.max(ei)
-    plt.xlim(0, max_ei)
+    plt.xlim(0)
     plt.ylim(0, max(ei+1))
 
     plt.gca().invert_yaxis()
