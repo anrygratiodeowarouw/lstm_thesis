@@ -266,32 +266,52 @@ def inference(model, x, ei):
     return y_pred
 
 
-#plot berdasarkan ei
+import numpy as np
+import matplotlib.pyplot as plt
+
 def plot_by_ei(data):
     x, ei = preprocessing(data, scaler)
-    print(x)
     y_pred = inference(regressor, x, ei)
-    plt.figure(figsize=(15,15))
+
+    # Membuat gambar berukuran 15x15 inci
+    plt.figure(figsize=(15, 15))
+
+    # Membuat plot hasil prediksi terhadap ei
     plt.plot(y_pred, ei, label='Prediction', color='red', linewidth=3)
-    #title = 'Prediction of Load-settlement Curve of Pile Foundation using Deep Learning'
-    # Font Family
-    plt.rcParams['font.family'] = 'Arial'
-    # membuat jarak antara title dengan grafik
+
+    # Mengatur judul dan ukuran font judul
     plt.title('Prediction of Load-settlement Curve of Pile Foundation using Deep Learning', fontsize=24, fontweight='bold', pad=30.0)
+
+    # Mengatur label sumbu x dan y beserta ukuran font-nya
     plt.xlabel('Load at Pile Head (kN)', fontsize=20)
     plt.ylabel('Pile Top Settlement (% Diameter)', fontsize=20)
 
-    plt.xticks(fontsize=16)
-    plt.yticks(fontsize=16)
+    # Mengatur batas minimum sumbu x ke 0
     plt.xlim(0)
-    plt.ylim(0, max(ei+1))
 
+    # Menghitung nilai maksimum dari ei
+    max_ei = np.max(ei)
+
+    # Mengatur batas maksimum sumbu x sesuai dengan nilai maksimum ei, dan jarak xticks sebesar 1000 kN
+    xticks = np.arange(0, max_ei + 1000, 1000)
+    plt.xticks(xticks, fontsize=16)
+
+    # Mengatur batas minimum dan maksimum sumbu y sesuai dengan nilai maksimum ei, dan jarak yticks sebesar 0.1%
+    plt.ylim(0, max(ei + 0.1))
+    yticks = np.arange(0, max(ei) + 0.1, 0.1)
+    plt.yticks(yticks, fontsize=16)
+
+    # Memutar sumbu y agar sesuai dengan representasi yang benar
     plt.gca().invert_yaxis()
-    # mengatur garis grid pada grafik
+
+    # Mengatur garis grid pada grafik
     plt.grid(linestyle='--', linewidth=1, alpha=0.5)
+
+    # Menambahkan legenda
     plt.legend(fontsize=14)
 
     return plt, y_pred
+
 
 #create 10 columns
 #col1, col2, col3, col4 = st.columns(4)
