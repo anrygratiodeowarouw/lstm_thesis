@@ -383,6 +383,7 @@ plot, y_pred = plot_by_ei(x)
 
 st.pyplot(plot)
 
+# #Disclaimer: Model hanya dapat digunakan dalam range input yang sudah ditentukan, mohon digunakan secara hati-hati!
 
 st.markdown("Credit to:")
 st.markdown("            P2MI ITB")
