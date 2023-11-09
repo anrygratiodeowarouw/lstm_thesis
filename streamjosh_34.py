@@ -383,8 +383,9 @@ plot, y_pred = plot_by_ei(x)
 
 st.pyplot(plot)
 
-st.text("Disclaimer: Model hanya dapat digunakan dalam range input yang sudah ditentukan")
-st.text("Mohon digunakan secara hati-hati!")
+st.markdown("**Disclaimer: Model hanya dapat digunakan dalam range input yang sudah ditentukan**", unsafe_allow_html=True)
+st.markdown("**Mohon digunakan dengan hati-hati!**", unsafe_allow_html=True)
+
 
 st.markdown("Credit to:")
 st.markdown("            P2MI ITB")
