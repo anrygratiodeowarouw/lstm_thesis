@@ -395,6 +395,6 @@ st.text("")
 st.text("")
 st.text("")
 
-st.markdown(":smile: Feel free to contact me : 25021069@mahasiswa.itb.ac.id or via Github: https://github.com/anrygratiodeowarouw")
+st.markdown(":smile: Feel free to contact me : 25021069@mahasiswa.itb.ac.id, Github: https://github.com/anrygratiodeowarouw")
 
 
