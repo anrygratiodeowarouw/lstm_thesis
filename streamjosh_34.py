@@ -350,7 +350,7 @@ x10 = st.selectbox('Jenis Tanah Ekivalen di Ujung Tiang (S4)', options=list(s_va
 x10 = s_value[x10]
 
 #with col11:
-x11 = st.number_input('Jumlah Data Penurunan (pers. get_ei)', min_value=0,max_value=14, value=13, step=1)
+x11 = st.number_input('Jumlah Data Penurunan (pers. get_ei)', min_value=0,max_value=20, value=13, step=1)
 
 print(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11)
 
